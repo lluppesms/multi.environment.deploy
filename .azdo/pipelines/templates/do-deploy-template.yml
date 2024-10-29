@@ -1,0 +1,23 @@
+parameters:
+  - name: environmentName
+    default: ''
+  - name: serviceConnection
+    default: ''
+  - name: resourceGroupName
+    default: ''
+  - name: location
+    default: ''
+  - name: bicepFilePath
+    default: ''
+  - name: parameterFilePath
+    default: ''
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  displayName: 'Do Deploy ${{ parameters.environmentName }}'
+  inputs:
+    azureResourceManagerConnection: ${{ parameters.serviceConnection }}
+    resourceGroupName: ${{ parameters.resourceGroupName }}
+    location: ${{ parameters.location }}
+    csmFile: ${{ parameters.bicepFilePath }}
+    csmParametersFile: ${{ parameters.parameterFilePath }}

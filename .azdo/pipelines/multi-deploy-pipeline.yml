@@ -26,7 +26,7 @@ variables:
 
 # ----------------------------------------------------------------------------------------------------
 stages:
-- template: templates/deploy-bicep-template.yml
+- template: templates/deploy-bicep-template-2.yml
   parameters:
     environmentName: ${{ parameters.deployToEnvironment }}
     bicepPath: 'infra/bicep'
